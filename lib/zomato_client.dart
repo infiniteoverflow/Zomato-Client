@@ -1,8 +1,11 @@
 library zomato_client;
 
+import 'dart:convert';
+
 import 'package:http/http.dart' as http;
 
 import 'package:flutter/material.dart';
+import 'package:zomato_client/model/categories.dart';
 
 /// A Dart class to get all the endpoints of the Zomato API.
 class Zomato {
@@ -23,8 +26,9 @@ class Zomato {
     };
     final response = await http.get(categoryUrl, headers: headers,);
 
+    if(asObject) return Categories.fromList(json.decode(response.body)['categories']);
     return response.body;
   }
 
-  
+
 }
