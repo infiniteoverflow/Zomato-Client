@@ -34,15 +34,15 @@ Through this dart package we reduce the developers work in writing Future method
   - Using coordinates - Identifies the city details based on the coordinates of any location inside a city
 If you already know the Zomato City ID, this API can be used to get other details of the city.
 
--  `getCollections()` : Returns Zomato Restaurant Collections in a City. The location/City input can be provided in the following ways -
+-  `getCollections()` : Returns Zomato Restaurant Collections in a City. The location/City input can be provided in the following ways:
+    - Using Zomato City ID
+    - Using coordinates of any location within a city
+List of all restaurants listed in any particular Zomato Collection can be obtained using the '/search' API with Collection ID and Zomato City ID as the input
+  
+- `getCuisines()` : Get a list of all cuisines of restaurants listed in a city. The location/city input can be provided in the following ways:
   - Using Zomato City ID
   - Using coordinates of any location within a city
-List of all restaurants listed in any particular Zomato Collection can be obtained using the '/search' API with Collection ID and Zomato City ID as the input.
-
-- `getCuisines()` : Get a list of all cuisines of restaurants listed in a city. The location/city input can be provided in the following ways :
-  - Using Zomato City ID
-  - Using coordinates of any location within a city
- List of all restaurants serving a particular cuisine can be obtained using '/search' API with cuisine ID and location details
+List of all restaurants serving a particular cuisine can be obtained using '/search' API with cuisine ID and location details
 
 ## Return datatype of each module in the class Zomato 
 
