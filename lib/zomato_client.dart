@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:zomato_client/model/categories.dart';
 import 'package:zomato_client/model/cities.dart';
 import 'package:zomato_client/model/collections.dart';
+import 'package:zomato_client/model/cuisines.dart';
 
 /// A Dart class to get all the endpoints of the Zomato API.
 class Zomato {
@@ -60,6 +61,7 @@ class Zomato {
     return json.decode(response.body);
   }
 
+  // Returns Zomato Restaurant Collections in a City.
   Future getCollections({String lat,String long,int cityId,int count,bool asObject = false}) async {
     var api = 'https://developers.zomato.com/api/v2.1/collections';
     
@@ -85,4 +87,29 @@ class Zomato {
     }
   }
 
+  // Get a list of all cuisines of restaurants listed in a city.
+  Future getCuisines({String lat,String long,int cityId,int count,bool asObject = false}) async{
+    var api = 'https://developers.zomato.com/api/v2.1/cuisines';
+    
+    if(cityId!=null) api+="?city_id=$cityId";
+    else if(lat != null && long !=null) api+="?lat=$lat&long=$long";
+    if(count != null) {
+      if(api.contains("?")) api+="&count=$count";
+      else api+="?count=$count";
+    }
+
+    final headers = {
+      'Content-Type': 'application/json',
+      "user-key": this.key,
+    };
+    final response = await http.get(api, headers: headers,);
+
+    Map<String,dynamic> jsonData = json.decode(response.body);
+
+    if(jsonData.containsKey('code')) return "badRequest";
+    else {
+      if(asObject == true) return Cuisines.fromList(json.decode(response.body)['cuisines']);
+      else return json.decode(response.body);
+    }
+  }
 }
