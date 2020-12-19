@@ -13,7 +13,7 @@ class Zomato {
   // The Zomato API Key
   String key;
 
-  Zomato({@required this.key});
+  Zomato({@required this.key}):assert(key!=null);
 
   // Returns the category list
   Future getCategories({bool asObject = false}) async {
