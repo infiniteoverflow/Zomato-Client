@@ -30,5 +30,28 @@ class Zomato {
     return response.body;
   }
 
+  // Find the Zomato ID and other details for a city .
+  Future getCityDetails({String q,String lat,String long,String cityIds,int count,bool asObject = false}) async {
+    var api = 'https://developers.zomato.com/api/v2.1/cities';
+
+    if(q!=null) api+='?q=$q';
+    else if(lat != null && long !=null) api+="?lat=$lat&long=$long";
+    else if(cityIds!=null) {
+      cityIds.replaceAll(",", "%2c");
+      api+="?city_ids=$cityIds";
+    }
+    if(count != null) {
+      if(api.contains("?")) api+="&count=$count";
+      else api+="?count=$count";
+    }
+
+    final headers = {
+      'Content-Type': 'application/json',
+      "user-key": this.key,
+    };
+    final response = await http.get(api, headers: headers,);
+
+    return response.body;
+  }
 
 }
