@@ -25,14 +25,33 @@ Through this dart package we reduce the developers work in writing Future method
 
 *Note : The `asObject` parameter in each method describes whether the method should return data in pure json format or as a dart object which can be used to access each individual components of the api response.*
 
+## Methods in the class
+
+- `getCategories()` : Get a list of categories. List of all restaurants categorized under a particular restaurant type can be obtained using /Search API with Category ID as inputs
+
+- `getCityDetails()` : Find the Zomato ID and other details for a city . You can obtain the Zomato City ID in one of the following ways:
+  - City Name in the Search Query - Returns list of cities matching the query
+  - Using coordinates - Identifies the city details based on the coordinates of any location inside a city
+If you already know the Zomato City ID, this API can be used to get other details of the city.
+
+-  `getCollections()` : Returns Zomato Restaurant Collections in a City. The location/City input can be provided in the following ways -
+  - Using Zomato City ID
+  - Using coordinates of any location within a city
+List of all restaurants listed in any particular Zomato Collection can be obtained using the '/search' API with Collection ID and Zomato City ID as the input.
+
+- `getCuisines()` : Get a list of all cuisines of restaurants listed in a city. The location/city input can be provided in the following ways :
+  - Using Zomato City ID
+  - Using coordinates of any location within a city
+ List of all restaurants serving a particular cuisine can be obtained using '/search' API with cuisine ID and location details
+
 ## Return datatype of each module in the class Zomato 
 
-Method name | `asObject = false` | `asObject = true`
-:-----------:|:-------------------:|:----------------:
-getCategories() | Map<String,dynamic> | Categories
-getCityDetails() | Map<String,dynamic> | CitiesResponse
-getCollections() | Map<String,dynamic> | Collections
-getCuisines() | Map<String,dynamic> | Cuisines
+Method name | `asObject = false` | `asObject = true`| Error |
+:-----------:|:-------------------:|:----------------:|:-------
+getCategories() | Map<String,dynamic> | Categories | 
+getCityDetails() | Map<String,dynamic> | CitiesResponse | 
+getCollections() | Map<String,dynamic> | Collections | String
+getCuisines() | Map<String,dynamic> | Cuisines | String
 
 *Note : You can use the `.` operator to know which all attributes are available for each returned datatype when `asObject=true`.*
 
