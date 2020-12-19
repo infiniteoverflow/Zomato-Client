@@ -41,10 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     super.initState();
     Zomato zomato = Zomato(key: '7f42ee3c1a3783535032c07f936187d0');
-    zomato.getCityDetails(asObject: true).then((value){
-      CitiesResponse citiesResponse = value;
-      print(citiesResponse.cityList.cities);
-    });
+    zomato.getCollections(cityId: 1,asObject: true).then((value) => print(value));
   }
 
   @override
