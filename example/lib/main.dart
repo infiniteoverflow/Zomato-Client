@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:zomato_client/model/cities.dart';
 import 'package:zomato_client/zomato_client.dart';
 
 void main() {
@@ -40,7 +41,10 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     super.initState();
     Zomato zomato = Zomato(key: '7f42ee3c1a3783535032c07f936187d0');
-    zomato.getCityDetails(q: 'newyork').then((value) => print(value));
+    zomato.getCityDetails(asObject: true).then((value){
+      CitiesResponse citiesResponse = value;
+      print(citiesResponse.cityList.cities);
+    });
   }
 
   @override

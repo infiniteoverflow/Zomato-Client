@@ -6,6 +6,7 @@ import 'package:http/http.dart' as http;
 
 import 'package:flutter/material.dart';
 import 'package:zomato_client/model/categories.dart';
+import 'package:zomato_client/model/cities.dart';
 
 /// A Dart class to get all the endpoints of the Zomato API.
 class Zomato {
@@ -51,6 +52,10 @@ class Zomato {
     };
     final response = await http.get(api, headers: headers,);
 
+    if(asObject == true) {
+      CitiesResponse citiesResponse = CitiesResponse.fromJson(json.decode(response.body));
+      return citiesResponse;
+    }
     return response.body;
   }
 
