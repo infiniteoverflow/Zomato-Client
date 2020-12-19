@@ -45,3 +45,7 @@ getCuisines() | Map<String,dynamic> | Cuisines
     print(categories.categories[0].name);
   });
 ```
+
+If you love this package , please leave a :star: .
+
+If you feel there is something missing , please feel free to raise an issue and i will get back to you on it as soon as i can.
