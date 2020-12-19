@@ -36,12 +36,12 @@ If you already know the Zomato City ID, this API can be used to get other detail
 
 -  `getCollections()` : Returns Zomato Restaurant Collections in a City. The location/City input can be provided in the following ways:
     - Using Zomato City ID
-    - Using coordinates of any location within a city
+    - Using coordinates of any location within a city.   
 List of all restaurants listed in any particular Zomato Collection can be obtained using the '/search' API with Collection ID and Zomato City ID as the input
   
 - `getCuisines()` : Get a list of all cuisines of restaurants listed in a city. The location/city input can be provided in the following ways:
   - Using Zomato City ID
-  - Using coordinates of any location within a city
+  - Using coordinates of any location within a city.   
 List of all restaurants serving a particular cuisine can be obtained using '/search' API with cuisine ID and location details
 
 ## Return datatype of each module in the class Zomato 
