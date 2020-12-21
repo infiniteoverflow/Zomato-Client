@@ -42,7 +42,9 @@ List of all restaurants listed in any particular Zomato Collection can be obtain
 - `getCuisines()` : Get a list of all cuisines of restaurants listed in a city. The location/city input can be provided in the following ways:
   - Using Zomato City ID
   - Using coordinates of any location within a city.   
-List of all restaurants serving a particular cuisine can be obtained using '/search' API with cuisine ID and location details
+List of all restaurants serving a particular cuisine can be obtained using '/search' API with cuisine ID and location details.
+
+- `getGeocode()` : Get Foodie and Nightlife Index, list of popular cuisines and nearby restaurants around the given coordinates.
 
 ## Return datatype of each module in the class Zomato 
 
@@ -52,6 +54,7 @@ getCategories() | Map<String,dynamic> | Categories |
 getCityDetails() | Map<String,dynamic> | CitiesResponse | 
 getCollections() | Map<String,dynamic> | Collections | String
 getCuisines() | Map<String,dynamic> | Cuisines | String
+getGeocode() | Map<String,dynamic> | GeoCode | String
 
 *Note : You can use the `.` operator to know which all attributes are available for each returned datatype when `asObject=true`.*
 
