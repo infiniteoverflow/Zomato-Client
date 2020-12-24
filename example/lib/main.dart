@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:zomato_client/model/cities.dart';
 import 'package:zomato_client/zomato_client.dart';
 
 void main() {
