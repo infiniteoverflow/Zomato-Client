@@ -42,7 +42,7 @@ class _MyHomePageState extends State<MyHomePage> {
     super.initState();
     Zomato zomato = Zomato(key: '7f42ee3c1a3783535032c07f936187d0');
 
-    zomato.getLocation(place: 'bangalore',asObject: true).then((value) => print(value.locationSuggestions.suggestions.length));
+    zomato.getLocationDetails(entityType: 'group', entityId: 661,asObject: true).then((value) => print(value.bestRatedRestaurants.restaurants[0].restaurantLocation.city));
   }
 
   @override

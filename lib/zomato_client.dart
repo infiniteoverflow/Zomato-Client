@@ -11,6 +11,7 @@ import 'package:zomato_client/model/collections.dart';
 import 'package:zomato_client/model/cuisines.dart';
 import 'package:zomato_client/model/establishment.dart';
 import 'package:zomato_client/model/geocode.dart';
+import 'package:zomato_client/model/locationDetails.dart';
 import 'package:zomato_client/model/locations.dart' as loc;
 
 /// A Dart class to get all the endpoints of the Zomato API.
@@ -155,6 +156,7 @@ class Zomato {
     }
   }
 
+  // Search for Zomato locations by keyword. Provide coordinates to get better search results
   Future getLocation({@required String place,double lat,double long,int count,bool asObject}) async{
 
     assert(place!=null);
@@ -180,6 +182,29 @@ class Zomato {
       if(asObject == true) return loc.Location.fromJson(json.decode(response.body));
       else return json.decode(response.body);
     }
+  }
 
+  // Get Foodie Index, Nightlife Index, Top Cuisines and Best rated restaurants in a given location
+  Future getLocationDetails({@required String entityType , @required int entityId,bool asObject}) async {
+
+    assert(entityId!=null);
+    assert(entityType!=null);
+
+    var api = 'https://developers.zomato.com/api/v2.1/location_details?entity_id=$entityId&entity_type=$entityType';
+
+    final headers = {
+      'Content-Type': 'application/json',
+      "user-key": this.key,
+    };
+
+    final response = await http.get(api, headers: headers,);
+
+    Map<String,dynamic> jsonData = json.decode(response.body);
+
+    if(jsonData.containsKey('code')) return "badRequest";
+    else {
+      if(asObject == true) return LocationDetails.fromJson(json.decode(response.body));
+      else return json.decode(response.body);
+    }
   }
 }
