@@ -42,7 +42,7 @@ class _MyHomePageState extends State<MyHomePage> {
     super.initState();
     Zomato zomato = Zomato(key: '7f42ee3c1a3783535032c07f936187d0');
 
-    zomato.getGeocode(lat: 12.97, long: 77.59,asObject: true).then((value) => print(value.nearbyRestaurants.restaurants[0].r.menuStatus.delivery));
+    zomato.getLocation(place: 'bangalore',asObject: true).then((value) => print(value.locationSuggestions.suggestions.length));
   }
 
   @override

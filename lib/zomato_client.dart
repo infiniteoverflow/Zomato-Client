@@ -10,6 +10,8 @@ import 'package:zomato_client/model/cities.dart';
 import 'package:zomato_client/model/collections.dart';
 import 'package:zomato_client/model/cuisines.dart';
 import 'package:zomato_client/model/establishment.dart';
+import 'package:zomato_client/model/geocode.dart';
+import 'package:zomato_client/model/locations.dart' as loc;
 
 /// A Dart class to get all the endpoints of the Zomato API.
 class Zomato {
@@ -110,6 +112,7 @@ class Zomato {
     }
   }
 
+  // Get a list of restaurant types in a city.
   Future getEstablishment({String lat,String long,int cityId,bool asObject = false}) async {
     var api = 'https://developers.zomato.com/api/v2.1/establishments';
     
@@ -129,5 +132,54 @@ class Zomato {
       if(asObject == true) return Establishments.fromList(json.decode(response.body)['establishments']);
       else return json.decode(response.body);
     }
+  }
+
+  // Get Foodie and Nightlife Index, list of popular cuisines and nearby restaurants around the given coordinates.
+  Future getGeocode({@required double lat , @required double long , bool asObject}) async {
+    assert(lat!=null);
+    assert(long!=null);
+    
+    var api = 'https://developers.zomato.com/api/v2.1/geocode?lat=$lat&lon=$long';
+    final headers = {
+      'Content-Type': 'application/json',
+      "user-key": this.key,
+    };
+    final response = await http.get(api, headers: headers,);
+
+    Map<String,dynamic> jsonData = json.decode(response.body);
+
+    if(jsonData.containsKey('code')) return "badRequest";
+    else {
+      if(asObject == true) return GeoCode.fromJson(json.decode(response.body));
+      else return json.decode(response.body);
+    }
+  }
+
+  Future getLocation({@required String place,double lat,double long,int count,bool asObject}) async{
+
+    assert(place!=null);
+
+    var api = 'https://developers.zomato.com/api/v2.1/locations?query=$place';
+
+    if(lat != null) api+='&lat=$lat';
+    if(long != null) api+='&lon=$long';
+
+    if(count!=null) api+='&count=$count';
+
+    final headers = {
+      'Content-Type': 'application/json',
+      "user-key": this.key,
+    };
+
+    final response = await http.get(api, headers: headers,);
+
+    Map<String,dynamic> jsonData = json.decode(response.body);
+
+    if(jsonData.containsKey('code')) return "badRequest";
+    else {
+      if(asObject == true) return loc.Location.fromJson(json.decode(response.body));
+      else return json.decode(response.body);
+    }
+
   }
 }
