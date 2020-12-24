@@ -4,11 +4,9 @@ class Cuisine {
 
   Cuisine({this.cuisineId, this.cuisineName});
 
-  factory Cuisine.fromJson(Map<String,dynamic> data) {
+  factory Cuisine.fromJson(Map<String, dynamic> data) {
     return Cuisine(
-      cuisineId: data['cuisine_id'],
-      cuisineName: data['cuisine_name']
-    );
+        cuisineId: data['cuisine_id'], cuisineName: data['cuisine_name']);
   }
 }
 

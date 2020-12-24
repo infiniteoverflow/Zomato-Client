@@ -1,4 +1,3 @@
-
 class Collection {
   final collectionId;
   final resCount;
@@ -8,19 +7,24 @@ class Collection {
   final description;
   final shareUrl;
 
-  Collection({this.collectionId, this.resCount, this.imageUrl, 
-  this.url, this.title, this.description, this.shareUrl});
+  Collection(
+      {this.collectionId,
+      this.resCount,
+      this.imageUrl,
+      this.url,
+      this.title,
+      this.description,
+      this.shareUrl});
 
-  factory Collection.fromJson(Map<String,dynamic> data) {
+  factory Collection.fromJson(Map<String, dynamic> data) {
     return Collection(
-      collectionId: data['collection_id'],
-      resCount: data['res_count'],
-      imageUrl: data['image_url'],
-      url: data['url'],
-      title: data['title'],
-      description: data['description'],
-      shareUrl: data['share_url']
-    );
+        collectionId: data['collection_id'],
+        resCount: data['res_count'],
+        imageUrl: data['image_url'],
+        url: data['url'],
+        title: data['title'],
+        description: data['description'],
+        shareUrl: data['share_url']);
   }
 }
 
@@ -31,7 +35,8 @@ class Collections {
 
   factory Collections.fromList(List<dynamic> collections) {
     return Collections(
-      collections: collections.map((e) => Collection.fromJson(e['collection'])).toList(),
+      collections:
+          collections.map((e) => Collection.fromJson(e['collection'])).toList(),
     );
   }
 }

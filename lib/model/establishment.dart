@@ -4,11 +4,9 @@ class Establishment {
 
   Establishment({this.establishmentId, this.establishmentName});
 
-  factory Establishment.fromJson(Map<String,dynamic> data) {
+  factory Establishment.fromJson(Map<String, dynamic> data) {
     return Establishment(
-      establishmentId: data['id'],
-      establishmentName: data['name']
-    );
+        establishmentId: data['id'], establishmentName: data['name']);
   }
 }
 
@@ -19,7 +17,9 @@ class Establishments {
 
   factory Establishments.fromList(List<dynamic> establishments) {
     return Establishments(
-      establishments: establishments.map((e) => Establishment.fromJson(e['establishment'])).toList(),
+      establishments: establishments
+          .map((e) => Establishment.fromJson(e['establishment']))
+          .toList(),
     );
   }
 }

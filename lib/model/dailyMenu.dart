@@ -5,12 +5,9 @@ class Dish {
 
   Dish({this.dishId, this.name, this.price});
 
-  factory Dish.fromJson(Map<String,dynamic> json) {
+  factory Dish.fromJson(Map<String, dynamic> json) {
     return Dish(
-      dishId: json['dish_id'],
-      name: json['name'],
-      price: json['price']
-    );
+        dishId: json['dish_id'], name: json['name'], price: json['price']);
   }
 }
 
@@ -32,9 +29,9 @@ class DailyMenu {
   final String name;
   Dishes dishes;
 
-  DailyMenu({this.dailyMenuId,this.dishes,this.name,this.startDate});
+  DailyMenu({this.dailyMenuId, this.dishes, this.name, this.startDate});
 
-  factory DailyMenu.fromJson(Map<String,dynamic> json) {
+  factory DailyMenu.fromJson(Map<String, dynamic> json) {
     return DailyMenu(
       dailyMenuId: json['daily_menu_id'],
       startDate: json['start_date'],
@@ -51,8 +48,8 @@ class DailyMenuList {
 
   factory DailyMenuList.fromList(List<dynamic> dailyMenus) {
     return DailyMenuList(
-      dailyMenus: dailyMenus.map((e) => DailyMenu.fromJson(e['daily_menu'])).toList(),
+      dailyMenus:
+          dailyMenus.map((e) => DailyMenu.fromJson(e['daily_menu'])).toList(),
     );
   }
 }
-

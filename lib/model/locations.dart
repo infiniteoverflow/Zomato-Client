@@ -9,12 +9,18 @@ class Suggestion {
   final int countryId;
   final String countryName;
 
-  Suggestion({this.entityType, this.entityId, 
-  this.title, this.latitude, this.longitude, 
-  this.cityId, this.cityName, this.countryId, 
-  this.countryName});
+  Suggestion(
+      {this.entityType,
+      this.entityId,
+      this.title,
+      this.latitude,
+      this.longitude,
+      this.cityId,
+      this.cityName,
+      this.countryId,
+      this.countryName});
 
-  factory Suggestion.fromJson(Map<String,dynamic> json) {
+  factory Suggestion.fromJson(Map<String, dynamic> json) {
     return Suggestion(
       entityId: json['entity_id'],
       entityType: json['entity_type'],
@@ -36,8 +42,7 @@ class LocationSuggestions {
 
   factory LocationSuggestions.fromList(List<dynamic> suggestions) {
     return LocationSuggestions(
-      suggestions: suggestions.map((e) => Suggestion.fromJson(e)).toList()
-    );
+        suggestions: suggestions.map((e) => Suggestion.fromJson(e)).toList());
   }
 }
 
@@ -48,16 +53,20 @@ class Location {
   final hasTotal;
   final userHasAddress;
 
-  Location({this.status, this.hasMore, 
-  this.hasTotal, this.userHasAddress,this.locationSuggestions});
+  Location(
+      {this.status,
+      this.hasMore,
+      this.hasTotal,
+      this.userHasAddress,
+      this.locationSuggestions});
 
-  factory Location.fromJson(Map<String,dynamic> json) {
+  factory Location.fromJson(Map<String, dynamic> json) {
     return Location(
-      locationSuggestions: LocationSuggestions.fromList(json['location_suggestions']),
-      status: json['status'],
-      hasMore: json['has_more'],
-      hasTotal: json['has_total'],
-      userHasAddress: json['user_has_addresses']
-    );
+        locationSuggestions:
+            LocationSuggestions.fromList(json['location_suggestions']),
+        status: json['status'],
+        hasMore: json['has_more'],
+        hasTotal: json['has_total'],
+        userHasAddress: json['user_has_addresses']);
   }
 }
