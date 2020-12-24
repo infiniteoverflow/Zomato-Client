@@ -51,6 +51,10 @@ List of all restaurants categorized under a particular restaurant type can obtai
 
 - `getGeocode()` : Get Foodie and Nightlife Index, list of popular cuisines and nearby restaurants around the given coordinates.
 
+- `getLocation()` : Search for Zomato locations by keyword. Provide coordinates to get better search results.
+
+- `getLocationDetails()` : Get Foodie Index, Nightlife Index, Top Cuisines and Best rated restaurants in a given location. We receive the EntityId and EntityType from the `getLocation()` method.
+
 ## Return datatype of each module in the class Zomato 
 
 Method name | `asObject = false` | `asObject = true`| Error |
@@ -61,6 +65,8 @@ getCollections() | Map<String,dynamic> | Collections | String
 getCuisines() | Map<String,dynamic> | Cuisines | String
 getEstablishment() | Map<String,dynamic> | Establishments | String
 getGeocode() | Map<String,dynamic> | GeoCode | String
+getLocation() | Map<String,dynamic> | Location | String
+getLocationDetails() | Map<String,dynamic> | LocationDetails | String
 
 *Note : You can use the `.` operator to know which all attributes are available for each returned datatype when `asObject=true`.*
 
