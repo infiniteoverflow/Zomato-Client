@@ -1,3 +1,4 @@
+/// Gives details for each Category like id and name.
 class Category {
   int id;
   String name;
@@ -9,6 +10,7 @@ class Category {
   }
 }
 
+/// Gives the list of all Categories.
 class Categories {
   List<Category> categories;
 

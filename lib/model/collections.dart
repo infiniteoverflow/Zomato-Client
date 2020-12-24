@@ -1,3 +1,4 @@
+/// Gives details about each Collection in the Collections List.
 class Collection {
   final collectionId;
   final resCount;
@@ -28,6 +29,7 @@ class Collection {
   }
 }
 
+/// Gives the list of all collections available for each search
 class Collections {
   List<Collection> collections;
 

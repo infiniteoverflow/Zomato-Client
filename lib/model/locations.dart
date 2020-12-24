@@ -1,3 +1,4 @@
+/// Details of an individual Suggestion
 class Suggestion {
   final String entityType;
   final int entityId;
@@ -9,6 +10,7 @@ class Suggestion {
   final int countryId;
   final String countryName;
 
+  /// Constructor to accept these details and also to pass as an object.
   Suggestion(
       {this.entityType,
       this.entityId,
@@ -35,6 +37,7 @@ class Suggestion {
   }
 }
 
+/// List Of Suggestions returned from the API
 class LocationSuggestions {
   List<Suggestion> suggestions;
 
@@ -46,6 +49,7 @@ class LocationSuggestions {
   }
 }
 
+/// Contains data such as the LocationSuggestions along with other aspects of the response.
 class Location {
   LocationSuggestions locationSuggestions;
   final String status;

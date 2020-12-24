@@ -1,3 +1,4 @@
+/// Gives details of each dish in the dailymenus
 class Dish {
   final dishId;
   final String name;
@@ -11,6 +12,7 @@ class Dish {
   }
 }
 
+/// Lists all the dishes available in the dailymenu
 class Dishes {
   List<Dish> dishesList;
 
@@ -23,6 +25,7 @@ class Dishes {
   }
 }
 
+/// Gives the description of each item in the DailyMenu List
 class DailyMenu {
   final dailyMenuId;
   final startDate;
@@ -41,6 +44,7 @@ class DailyMenu {
   }
 }
 
+/// Gives the list of all items in the DailyMenu List
 class DailyMenuList {
   List<DailyMenu> dailyMenus;
 

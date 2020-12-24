@@ -1,3 +1,4 @@
+/// Gives details of each Establishment
 class Establishment {
   final establishmentId;
   final establishmentName;
@@ -10,6 +11,7 @@ class Establishment {
   }
 }
 
+/// Gives a list of all the establishments
 class Establishments {
   List<Establishment> establishments;
 

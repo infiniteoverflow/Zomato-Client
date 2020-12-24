@@ -1,3 +1,4 @@
+/// Gives location details of each search
 class Location {
   final entityType;
   final entityId;
@@ -34,6 +35,7 @@ class Location {
   }
 }
 
+/// Gives details of Popularity of each search
 class Popularity {
   final popularity;
   final nightlifeIndex;
@@ -70,6 +72,7 @@ class Popularity {
   }
 }
 
+/// Gives the status of the Menu
 class MenuStatus {
   final delivery;
   final takeaway;
@@ -81,6 +84,7 @@ class MenuStatus {
   }
 }
 
+/// Details of the Restaurant
 class R {
   final resId;
   final isGroceryStore;
@@ -96,6 +100,7 @@ class R {
   }
 }
 
+/// Gives location details of each Restaurant returned in the API Response.
 class RestaurantLocation {
   final address;
   final locality;
@@ -133,6 +138,7 @@ class RestaurantLocation {
   }
 }
 
+/// Returns the Rating Object of that particular Restaurant
 class RatingObject {
   final titleText;
   final bgColorType;
@@ -148,6 +154,7 @@ class RatingObject {
   }
 }
 
+/// Gives Details about the rating given by a particular User.
 class UserRating {
   final aggregateRating;
   final ratingText;
@@ -172,6 +179,7 @@ class UserRating {
   }
 }
 
+/// Complete Details regarding each Restaurant.
 class Restaurant {
   final R r;
   final String apiKey;
@@ -277,6 +285,7 @@ class Restaurant {
   }
 }
 
+/// Gives details about all nearby restaurants
 class NearbyRestaurants {
   List<Restaurant> restaurants;
 
@@ -290,6 +299,7 @@ class NearbyRestaurants {
   }
 }
 
+/// Returns response for the GeoCode API as an Object
 class GeoCode {
   Location location;
   Popularity popularity;

@@ -5,6 +5,7 @@ void main() {
   runApp(MyApp());
 }
 
+/// The basic BoilerPlate code used to represent a Material App
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -32,7 +33,11 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     super.initState();
+
+    /// Creating object of the Zomato Class and we specify the api key as its parameter.
     Zomato zomato = Zomato(key: "<API Key>");
+
+    /// Replace this code with any module you wish to test
     zomato.getCategories();
   }
 

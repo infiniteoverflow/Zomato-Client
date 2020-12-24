@@ -1,3 +1,4 @@
+/// Gives the detail about each cuisine
 class Cuisine {
   final cuisineId;
   final cuisineName;
@@ -10,6 +11,7 @@ class Cuisine {
   }
 }
 
+/// Gives the list of all cuisines available
 class Cuisines {
   List<Cuisine> cuisines;
 

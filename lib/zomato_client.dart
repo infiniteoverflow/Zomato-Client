@@ -20,21 +20,26 @@ class Zomato {
   /// The Zomato API Key
   String key;
 
+  /// The Constructor takes in the key and sets the class member : key
   Zomato({@required this.key}) : assert(key != null);
 
   /// Returns the category list
   Future getCategories({bool asObject = false}) async {
     String categoryUrl = 'https://developers.zomato.com/api/v2.1/categories';
 
+    /// Setting the headers
     final headers = {
       'Content-Type': 'application/json',
       "user-key": this.key,
     };
+
+    /// Getting the response from the api
     final response = await http.get(
       categoryUrl,
       headers: headers,
     );
 
+    /// If asObject variable is true
     if (asObject)
       return Categories.fromList(json.decode(response.body)['categories']);
     return json.decode(response.body);
@@ -65,15 +70,19 @@ class Zomato {
         api += "?count=$count";
     }
 
+    /// Setting the headers
     final headers = {
       'Content-Type': 'application/json',
       "user-key": this.key,
     };
+
+    /// Getting the response from the api
     final response = await http.get(
       api,
       headers: headers,
     );
 
+    /// If asObject variable is true
     if (asObject == true) {
       CitiesResponse citiesResponse =
           CitiesResponse.fromJson(json.decode(response.body));
@@ -101,17 +110,22 @@ class Zomato {
         api += "?count=$count";
     }
 
+    /// Setting the headers
     final headers = {
       'Content-Type': 'application/json',
       "user-key": this.key,
     };
+
+    /// Getting the response from the api
     final response = await http.get(
       api,
       headers: headers,
     );
 
+    /// Converts the response into a map
     Map<String, dynamic> jsonData = json.decode(response.body);
 
+    /// If the api returns error , it contains a key called code , which we use to validate if the response is successful or not
     if (jsonData.containsKey('code'))
       return jsonData['message'];
     else {
@@ -131,17 +145,22 @@ class Zomato {
       api += "?city_id=$cityId";
     else if (lat != null && long != null) api += "?lat=$lat&long=$long";
 
+    /// Setting the headers
     final headers = {
       'Content-Type': 'application/json',
       "user-key": this.key,
     };
+
+    /// Getting the response from the api
     final response = await http.get(
       api,
       headers: headers,
     );
 
+    /// Converts the response into a map
     Map<String, dynamic> jsonData = json.decode(response.body);
 
+    /// If the api returns error , it contains a key called code , which we use to validate if the response is successful or not
     if (jsonData.containsKey('code'))
       return jsonData['message'];
     else {
@@ -161,17 +180,22 @@ class Zomato {
       api += "?city_id=$cityId";
     else if (lat != null && long != null) api += "?lat=$lat&long=$long";
 
+    /// Setting the headers
     final headers = {
       'Content-Type': 'application/json',
       "user-key": this.key,
     };
+
+    /// Getting the response from the api
     final response = await http.get(
       api,
       headers: headers,
     );
 
+    /// Converts the response into a map
     Map<String, dynamic> jsonData = json.decode(response.body);
 
+    /// If the api returns error , it contains a key called code , which we use to validate if the response is successful or not
     if (jsonData.containsKey('code'))
       return jsonData['message'];
     else {
@@ -191,17 +215,23 @@ class Zomato {
 
     var api =
         'https://developers.zomato.com/api/v2.1/geocode?lat=$lat&lon=$long';
+
+    /// Setting the headers
     final headers = {
       'Content-Type': 'application/json',
       "user-key": this.key,
     };
+
+    /// Getting the response from the api
     final response = await http.get(
       api,
       headers: headers,
     );
 
+    /// Converts the response into a map
     Map<String, dynamic> jsonData = json.decode(response.body);
 
+    /// If the api returns error , it contains a key called code , which we use to validate if the response is successful or not
     if (jsonData.containsKey('code'))
       return jsonData['message'];
     else {
@@ -228,18 +258,22 @@ class Zomato {
 
     if (count != null) api += '&count=$count';
 
+    /// Setting the headers
     final headers = {
       'Content-Type': 'application/json',
       "user-key": this.key,
     };
 
+    /// Getting the response from the api
     final response = await http.get(
       api,
       headers: headers,
     );
 
+    /// Converts the response into a map
     Map<String, dynamic> jsonData = json.decode(response.body);
 
+    /// If the api returns error , it contains a key called code , which we use to validate if the response is successful or not
     if (jsonData.containsKey('code'))
       return jsonData['message'];
     else {
@@ -261,18 +295,22 @@ class Zomato {
     var api =
         'https://developers.zomato.com/api/v2.1/location_details?entity_id=$entityId&entity_type=$entityType';
 
+    /// Setting the headers
     final headers = {
       'Content-Type': 'application/json',
       "user-key": this.key,
     };
 
+    /// Getting the response from the api
     final response = await http.get(
       api,
       headers: headers,
     );
 
+    /// Converts the response into a map
     Map<String, dynamic> jsonData = json.decode(response.body);
 
+    /// If the api returns error , it contains a key called code , which we use to validate if the response is successful or not
     if (jsonData.containsKey('code'))
       return jsonData['message'];
     else {
@@ -289,18 +327,22 @@ class Zomato {
 
     var api = 'https://developers.zomato.com/api/v2.1/dailymenu?res_id=$resId';
 
+    /// Setting the headers
     final headers = {
       'Content-Type': 'application/json',
       "user-key": this.key,
     };
 
+    /// Getting the response from the api
     final response = await http.get(
       api,
       headers: headers,
     );
 
+    /// Converts the response into a map
     Map<String, dynamic> jsonData = json.decode(response.body);
 
+    /// If the api returns error , it contains a key called code , which we use to validate if the response is successful or not
     if (jsonData.containsKey('code'))
       return jsonData['message'];
     else {

@@ -1,5 +1,6 @@
 import 'package:zomato_client/model/geocode.dart';
 
+/// Details of the Restaurant
 class R {
   final resId;
   final isGroceryStore;
@@ -15,6 +16,7 @@ class R {
   }
 }
 
+/// Gives the details of the Menu
 class MenuStatus {
   final delivery;
   final takeaway;
@@ -26,6 +28,7 @@ class MenuStatus {
   }
 }
 
+/// Gives location details of each Restaurant returned in the API Response.
 class RestaurantLocation {
   final address;
   final locality;
@@ -63,6 +66,7 @@ class RestaurantLocation {
   }
 }
 
+/// Returns the Rating Object of that particular Restaurant
 class RatingObject {
   final titleText;
   final bgColorType;
@@ -78,6 +82,7 @@ class RatingObject {
   }
 }
 
+/// Gives Details about the rating given by a particular User.
 class UserRating {
   final aggregateRating;
   final ratingText;
@@ -102,6 +107,7 @@ class UserRating {
   }
 }
 
+/// Contains a list of Reviews given for a particular Restaurant.
 class Review {
   List<dynamic> reviews;
 
@@ -114,6 +120,7 @@ class Review {
   }
 }
 
+/// Collection of all the reviews
 class AllReviews {
   List<Review> reviews;
 
@@ -128,6 +135,7 @@ class AllReviews {
   }
 }
 
+/// Complete Details regarding each Restaurant.
 class Restaurant {
   final R r;
   final String apiKey;
@@ -254,6 +262,7 @@ class Restaurant {
   }
 }
 
+/// Gives a list of Best Rated Restaurants
 class BestRatedRestaurants {
   List<Restaurant> restaurants;
 
@@ -267,6 +276,7 @@ class BestRatedRestaurants {
   }
 }
 
+/// Gives Location details of each Restaurant
 class LocationDetails {
   final popularity;
   final nightLifeIndex;

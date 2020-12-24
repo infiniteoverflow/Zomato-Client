@@ -1,3 +1,4 @@
+/// Gives the detail about each City along with various ids required for other APIs
 class City {
   final id;
   final name;
@@ -47,6 +48,7 @@ class City {
   }
 }
 
+/// Gives the list of all cities.
 class CityList {
   List<City> cities;
 
@@ -59,6 +61,7 @@ class CityList {
   }
 }
 
+/// Represents the response object for Cities API
 class CitiesResponse {
   CityList cityList;
   final status;
