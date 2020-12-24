@@ -9,6 +9,7 @@ import 'package:zomato_client/model/categories.dart';
 import 'package:zomato_client/model/cities.dart';
 import 'package:zomato_client/model/collections.dart';
 import 'package:zomato_client/model/cuisines.dart';
+import 'package:zomato_client/model/dailyMenu.dart';
 import 'package:zomato_client/model/establishment.dart';
 import 'package:zomato_client/model/geocode.dart';
 import 'package:zomato_client/model/locationDetails.dart';
@@ -84,7 +85,7 @@ class Zomato {
 
     Map<String,dynamic> jsonData = json.decode(response.body);
 
-    if(jsonData.containsKey('code')) return "badRequest";
+    if(jsonData.containsKey('code')) return jsonData['message'];
     else {
       if(asObject == true) return Collections.fromList(json.decode(response.body)['collections']);
       else return json.decode(response.body);
@@ -106,7 +107,7 @@ class Zomato {
 
     Map<String,dynamic> jsonData = json.decode(response.body);
 
-    if(jsonData.containsKey('code')) return "badRequest";
+    if(jsonData.containsKey('code')) return jsonData['message'];
     else {
       if(asObject == true) return Cuisines.fromList(json.decode(response.body)['cuisines']);
       else return json.decode(response.body);
@@ -128,7 +129,7 @@ class Zomato {
 
     Map<String,dynamic> jsonData = json.decode(response.body);
 
-    if(jsonData.containsKey('code')) return "badRequest";
+    if(jsonData.containsKey('code')) return jsonData['message'];
     else {
       if(asObject == true) return Establishments.fromList(json.decode(response.body)['establishments']);
       else return json.decode(response.body);
@@ -149,7 +150,7 @@ class Zomato {
 
     Map<String,dynamic> jsonData = json.decode(response.body);
 
-    if(jsonData.containsKey('code')) return "badRequest";
+    if(jsonData.containsKey('code')) return jsonData['message'];
     else {
       if(asObject == true) return GeoCode.fromJson(json.decode(response.body));
       else return json.decode(response.body);
@@ -177,7 +178,7 @@ class Zomato {
 
     Map<String,dynamic> jsonData = json.decode(response.body);
 
-    if(jsonData.containsKey('code')) return "badRequest";
+    if(jsonData.containsKey('code')) return jsonData['message'];
     else {
       if(asObject == true) return loc.Location.fromJson(json.decode(response.body));
       else return json.decode(response.body);
@@ -201,9 +202,30 @@ class Zomato {
 
     Map<String,dynamic> jsonData = json.decode(response.body);
 
-    if(jsonData.containsKey('code')) return "badRequest";
+    if(jsonData.containsKey('code')) return jsonData['message'];
     else {
       if(asObject == true) return LocationDetails.fromJson(json.decode(response.body));
+      else return json.decode(response.body);
+    }
+  }
+
+  Future getDailyMenus({@required resId,bool asObject}) async{
+    assert(resId!=null);
+
+    var api = 'https://developers.zomato.com/api/v2.1/dailymenu?res_id=$resId';
+
+    final headers = {
+      'Content-Type': 'application/json',
+      "user-key": this.key,
+    };
+
+    final response = await http.get(api, headers: headers,);
+
+    Map<String,dynamic> jsonData = json.decode(response.body);
+
+    if(jsonData.containsKey('code')) return jsonData['message'];
+    else {
+      if(asObject == true) return DailyMenuList.fromList(json.decode(response.body)['daily_menus']);
       else return json.decode(response.body);
     }
   }
