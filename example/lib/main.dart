@@ -40,9 +40,8 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     super.initState();
-    Zomato zomato = Zomato(key: '7f42ee3c1a3783535032c07f936187d0');
-
-    zomato.getDailyMenus(resId: 16507624,asObject: true).then((value) => print(value.dailyMenus.last.dishes.dishesList.length));
+    Zomato zomato = Zomato(key: "7f42ee3c1a3783535032c07f936187d0");
+    zomato.getCategories();
   }
 
   @override

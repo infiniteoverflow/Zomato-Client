@@ -18,12 +18,12 @@ import 'package:zomato_client/model/locations.dart' as loc;
 /// A Dart class to get all the endpoints of the Zomato API.
 class Zomato {
 
-  // The Zomato API Key
+  /// The Zomato API Key
   String key;
 
   Zomato({@required this.key}):assert(key!=null);
 
-  // Returns the category list
+  /// Returns the category list
   Future getCategories({bool asObject = false}) async {
 
     String categoryUrl = 'https://developers.zomato.com/api/v2.1/categories';
@@ -38,7 +38,7 @@ class Zomato {
     return json.decode(response.body);
   }
 
-  // Find the Zomato ID and other details for a city .
+  /// Find the Zomato ID and other details for a city .
   Future getCityDetails({String q,String lat,String long,String cityIds,int count,bool asObject = false}) async {
     var api = 'https://developers.zomato.com/api/v2.1/cities';
 
@@ -66,7 +66,7 @@ class Zomato {
     return json.decode(response.body);
   }
 
-  // Returns Zomato Restaurant Collections in a City.
+  /// Returns Zomato Restaurant Collections in a City.
   Future getCollections({String lat,String long,int cityId,int count,bool asObject = false}) async {
     var api = 'https://developers.zomato.com/api/v2.1/collections';
     
@@ -92,7 +92,7 @@ class Zomato {
     }
   }
 
-  // Get a list of all cuisines of restaurants listed in a city.
+  /// Get a list of all cuisines of restaurants listed in a city.
   Future getCuisines({String lat,String long,int cityId,bool asObject = false}) async{
     var api = 'https://developers.zomato.com/api/v2.1/cuisines';
     
@@ -114,7 +114,7 @@ class Zomato {
     }
   }
 
-  // Get a list of restaurant types in a city.
+  /// Get a list of restaurant types in a city.
   Future getEstablishment({String lat,String long,int cityId,bool asObject = false}) async {
     var api = 'https://developers.zomato.com/api/v2.1/establishments';
     
@@ -136,7 +136,7 @@ class Zomato {
     }
   }
 
-  // Get Foodie and Nightlife Index, list of popular cuisines and nearby restaurants around the given coordinates.
+  /// Get Foodie and Nightlife Index, list of popular cuisines and nearby restaurants around the given coordinates.
   Future getGeocode({@required double lat , @required double long , bool asObject}) async {
     assert(lat!=null);
     assert(long!=null);
@@ -157,7 +157,7 @@ class Zomato {
     }
   }
 
-  // Search for Zomato locations by keyword. Provide coordinates to get better search results
+  /// Search for Zomato locations by keyword. Provide coordinates to get better search results
   Future getLocation({@required String place,double lat,double long,int count,bool asObject}) async{
 
     assert(place!=null);
@@ -185,7 +185,7 @@ class Zomato {
     }
   }
 
-  // Get Foodie Index, Nightlife Index, Top Cuisines and Best rated restaurants in a given location
+  /// Get Foodie Index, Nightlife Index, Top Cuisines and Best rated restaurants in a given location
   Future getLocationDetails({@required String entityType , @required int entityId,bool asObject}) async {
 
     assert(entityId!=null);
@@ -209,6 +209,7 @@ class Zomato {
     }
   }
 
+  /// Get daily menu using Zomato restaurant ID.
   Future getDailyMenus({@required resId,bool asObject}) async{
     assert(resId!=null);
 
