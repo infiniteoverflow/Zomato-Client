@@ -1,7 +1,6 @@
 name: zomato_client
 description: A Dart Client for Zomato API
 version: 0.0.1
-author: Aswin gopinathan
 homepage: https://github.com/infiniteoverflow/Zomato-Client
 
 environment:
