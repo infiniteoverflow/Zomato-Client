@@ -1,7 +1,12 @@
 /// Gives details of each dish in the dailymenus
 class Dish {
+  /// The ID of the dish
   final dishId;
+
+  /// The name of the dish
   final String name;
+
+  /// The price of the dish
   final price;
 
   Dish({this.dishId, this.name, this.price});
@@ -14,6 +19,7 @@ class Dish {
 
 /// Lists all the dishes available in the dailymenu
 class Dishes {
+  /// List of dishes
   List<Dish> dishesList;
 
   Dishes({this.dishesList});
@@ -27,9 +33,16 @@ class Dishes {
 
 /// Gives the description of each item in the DailyMenu List
 class DailyMenu {
+  /// ID of the Daily Menu Item
   final dailyMenuId;
+
+  /// The start date for the menu
   final startDate;
+
+  /// The name of the menu
   final String name;
+
+  /// List Of dishes in the daily menu
   Dishes dishes;
 
   DailyMenu({this.dailyMenuId, this.dishes, this.name, this.startDate});
@@ -46,6 +59,7 @@ class DailyMenu {
 
 /// Gives the list of all items in the DailyMenu List
 class DailyMenuList {
+  /// List of DailyMenus for that particular restaurant
   List<DailyMenu> dailyMenus;
 
   DailyMenuList({this.dailyMenus});

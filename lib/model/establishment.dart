@@ -1,6 +1,9 @@
 /// Gives details of each Establishment
 class Establishment {
+  /// Establishment ID
   final establishmentId;
+
+  /// Name of the Establishment
   final establishmentName;
 
   Establishment({this.establishmentId, this.establishmentName});
@@ -13,6 +16,7 @@ class Establishment {
 
 /// Gives a list of all the establishments
 class Establishments {
+  /// List of Establishment Objects
   List<Establishment> establishments;
 
   Establishments({this.establishments});

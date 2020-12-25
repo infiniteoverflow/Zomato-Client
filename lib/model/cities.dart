@@ -1,17 +1,35 @@
 /// Gives the detail about each City along with various ids required for other APIs
 class City {
+  /// ID of the city
   final id;
+
+  /// Name of the City
   final name;
+
+  /// The ID of the Country to which the city belongs
   final countryId;
+
+  /// The name of the Country to which the city belongs
   final countryName;
+
+  /// The URL to the Country falg
   final countryFlagUrl;
+
   final shouldExperimentWith;
   final hasGoOutTab;
   final discoveryEnabled;
   final hasNewAdFormat;
+
+  /// Defines whether it is a state or not
   final isState;
+
+  /// If so , the ID of the state
   final stateId;
+
+  /// The name of the State
   final stateName;
+
+  /// The code of the state
   final stateCode;
 
   City({
@@ -50,6 +68,7 @@ class City {
 
 /// Gives the list of all cities.
 class CityList {
+  /// List Consisting of City Objects
   List<City> cities;
 
   CityList({this.cities});

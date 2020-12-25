@@ -1,6 +1,9 @@
 /// Gives the detail about each cuisine
 class Cuisine {
+  /// ID of the Cuisine
   final cuisineId;
+
+  /// The name of the Cuisine
   final cuisineName;
 
   Cuisine({this.cuisineId, this.cuisineName});
@@ -13,6 +16,7 @@ class Cuisine {
 
 /// Gives the list of all cuisines available
 class Cuisines {
+  /// List of Cuisine Objects
   List<Cuisine> cuisines;
 
   Cuisines({this.cuisines});

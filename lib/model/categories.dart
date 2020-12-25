@@ -1,6 +1,9 @@
 /// Gives details for each Category like id and name.
 class Category {
+  /// Defines the ID of the Category
   int id;
+
+  /// Name of the Category
   String name;
 
   Category({this.id, this.name});
@@ -12,6 +15,7 @@ class Category {
 
 /// Gives the list of all Categories.
 class Categories {
+  /// Holds a list of Category objects
   List<Category> categories;
 
   Categories({this.categories});

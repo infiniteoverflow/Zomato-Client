@@ -5,3 +5,7 @@
 ## [0.0.2] - 24-December-2020
 
 * Updated Files to Comply by the pub analyzer.
+
+## [0.0.3] - 24-December-2020
+
+* Updated Files to Comply by the pub analyzer.
