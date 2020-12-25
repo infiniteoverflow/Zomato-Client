@@ -1,6 +1,6 @@
 name: zomato_client
 description: A Dart Client for Zomato API to access its various Endpoints without having to explicitly write Future methods and Http request codes to access it.
-version: 0.0.3
+version: 0.0.4
 homepage: https://github.com/infiniteoverflow/Zomato-Client
 
 environment:
