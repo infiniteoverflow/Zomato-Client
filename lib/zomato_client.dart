@@ -4,7 +4,7 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 
-import 'package:flutter/material.dart';
+import 'package:meta/meta.dart';
 import 'package:zomato_client/model/categories.dart';
 import 'package:zomato_client/model/cities.dart';
 import 'package:zomato_client/model/collections.dart';
