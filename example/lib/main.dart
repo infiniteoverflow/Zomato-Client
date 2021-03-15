@@ -29,6 +29,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  
   @override
   void initState() {
     super.initState();
@@ -47,12 +48,13 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-          child: Text(
-        "Welcome to Zomato API",
-        style: TextStyle(
-          fontSize: 25,
-        ),
-      )),
+        child: Text(
+          "Welcome to Zomato API",
+          style: TextStyle(
+            fontSize: 25,
+          ),
+        )
+      ),
     );
   }
 }
